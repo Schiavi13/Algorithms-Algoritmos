@@ -1,0 +1,9 @@
+//El índice de los arreglos empieza con 1 en este libro
+for j=2 to A.length  //A.legth es el tamaño del arreglo
+    key = A[j]       //La secuencia A[1,...,j-1] está ordenada
+    i = j-1
+    while i>0 and A[i]>key    //Compara con el subarreglo ordenado, yendo desde A[j-1] hasta A[1] mientras el elemento
+                              //A[i] sea mayor que key
+        A[i+1] = A[i]         //Copia el elemento A[i] en A[i+1]
+        i = i-1               //Sale del ciclo cuando A[i] es menor que key o i es menor que 0
+    A[i+1] = key              //Inserta key en A[i+1] cuando A[i] es menor que key o i es menor que 0
