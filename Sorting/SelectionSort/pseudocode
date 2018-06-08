@@ -2,6 +2,7 @@ for i=1 to A.length-1    //only goes to n-1 because the n element will be sorted
     ind = i              //ind will store the index of the smallest element in the subarray A[i...n]
     for j=i to A.length-1    //starts from i, since the subarray A[1...i-1] is sorted
         if A[j+1]<A[ind]    //compares each element of the subarray A[i...n] with the smallest element
+                            //for descending order: if A[j+1]>A[ind]
         ind = j+1    //updates the smallest element of the subarray
     min = A[ind]    //swaps the element in A[i] with the samllest that is in A[ind]
     A[ind] = A[i]
