@@ -1,4 +1,4 @@
-for i=1 to A.length
-    if A[i] == v
-        return i
-return NIL
+for i=1 to A.length     //search each index of the array
+    if A[i] == v        //until it finds the element
+        return i        //and returns the index where the element v is found
+return NIL              //otherwise returns a value to manage the case when the element v does not appear in the array
