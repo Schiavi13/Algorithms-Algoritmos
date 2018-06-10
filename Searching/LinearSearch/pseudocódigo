@@ -1,0 +1,4 @@
+for i=1 to A.length     //Busca en cada ínidice del arreglo
+    if A[i] == v        //hasta que encuentra el elemento v
+        return i        //y retorna el índice en dónde se encuentra el elemento v
+return NIL              //de otra manera retorna un valor para manejar el caso cuando el elemento v no está en el arreglo
