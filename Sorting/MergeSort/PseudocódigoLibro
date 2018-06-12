@@ -14,8 +14,8 @@ Merge(A,p,q,r)                         //p es el primer índice del subarreglo, 
     i = 1                              //inicializa cada iterador en 1
     j = 1
 
-    for k=p to r                       //compara los elementos en la cima de cada arreglo e inserta el menor en el subarreglo
-        if L[i] <= R[j]                //en orden
+    for k=p to r                       //compara los elementos en la cima de cada arreglo "desapila" e inserta el menor en el 
+        if L[i] <= R[j]                //subarreglo en orden
             A[k] = L[i]
             i = i+1
         else
