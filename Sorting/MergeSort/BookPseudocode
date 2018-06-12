@@ -21,3 +21,10 @@ for k=p to r
     else
         A[k] = R[j]
         j = j+1
+
+Merge-Sort(A,p,r)
+if p<r
+    q = [(p+r)/2]
+    Merge-Sort(A,p,q)
+    Merge-Sort(A,q+1,r)
+    Merge(A,p,q,r)
