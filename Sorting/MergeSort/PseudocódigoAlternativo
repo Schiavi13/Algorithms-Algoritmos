@@ -1,0 +1,40 @@
+Merge(A,p,q,r)                                  //revisar el pseudocódigo del libro para identificar las diferencias
+    n1 = q-p+1
+    n2 = r-q
+    let L[1...n1] and R[1...n2] be new arrays
+    
+    for i=1 to n1
+        L[i] = A[p+i-1]
+        
+    for j=1 to n2
+        R[j] = A[q+j]
+        
+    i = 1                                      //no solamente inicializa los iteradores para los arreglos, sino que también
+    j = 1                                      //inicializa el iterador para el subarreglo, ya que se manejará el problema con 
+    k = p                                      //ciclos while
+    
+    while i<=n1 and j<=n2                      //el ciclo se rompe cuando alguno de los arreglos sobrepasa su tamaño
+        if L[i] <= R[j]
+            A[k] = L[i]
+            i = i+1
+        else
+            A[k] = R[j]
+            j = j+1
+        k = k+1
+        
+    while i<= n1                               //llena el subarreglo con el resto de elementos del arreglo que todavía no
+        A[k] = L[i]                            //se ha "desapilado" por completo
+        i = i+1
+        k = k+1
+        
+    while j<= n2
+        A[k] = R[j]
+        j = j+1
+        k = k+1
+
+Merge-Sort(A,p,r)                       
+    if p<r
+        q = [(p+r)/2]
+        Merge-Sort(A,p,q)
+        Merge-Sort(A,q+1,r)
+        Merge(A,p,q,r)
