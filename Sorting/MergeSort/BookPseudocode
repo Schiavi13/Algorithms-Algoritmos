@@ -1,30 +1,30 @@
-Merge(A,p,q,r)
-    n1 = q-p+1
-    n2 = r-q
-    let L[1...n1+1] and let R[1...n2+1]
+Merge(A,p,q,r)                         //p is the first index of the subarray, q the middle of the subarray, r the last index
+    n1 = q-p+1                         //length of the first array
+    n2 = r-q                           //length of the second array
+    let L[1...n1+1] and let R[1...n2+1] //create 2 arrays with an extra index
 
-    for i=1 to n1
-        L[i] = A[p+i+1]
+    for i=1 to n1                      //fills the first array with the elements in the left of the subarray
+        L[i] = A[p+i+1]                
 
-    for j=1 to n2
+    for j=1 to n2                      //fills the second array with the elements in the right of the subarray
         R[j] = A[q+j]
 
-    L[n1+1] = ∞
+    L[n1+1] = ∞                        //put a number that is greater than any other number at the end of each array
     R[n2+1] = ∞
-    i = 1
+    i = 1                              //initializes iterators for both arrays
     j = 1
 
-    for k=p to r
-        if L[i] <= R[j]
+    for k=p to r                       //compares the top element of each array "pops"and inserts the lesser one into the subarray
+        if L[i] <= R[j]                //in order
             A[k] = L[i]
             i = i+1
         else
             A[k] = R[j]
             j = j+1
 
-Merge-Sort(A,p,r)
-    if p<r
-        q = [(p+r)/2]
-        Merge-Sort(A,p,q)
+Merge-Sort(A,p,r)                     //recursive call, p is the first index of the subarray, r the last one
+    if p<r                            //the recursive call ends when the length of the subarray is 1
+        q = [(p+r)/2]                 //looks for the middle index
+        Merge-Sort(A,p,q)             //recursive calls for both subarrays, 
         Merge-Sort(A,q+1,r)
-        Merge(A,p,q,r)
+        Merge(A,p,q,r)                //calls the merge function to merge sorted subarrays
