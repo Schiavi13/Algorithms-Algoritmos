@@ -1,0 +1,30 @@
+Merge(A,p,q,r)                         //p es el primer índice del subarreglo, q el de la mitad, r el último
+    n1 = q-p+1                         //tamaño del primer arreglo
+    n2 = r-q                           //tamaño del segundo arreglo
+    let L[1...n1+1] and let R[1...n2+1] //crea 2 arreglos, cada uno con un índice extra
+
+    for i=1 to n1                      //llena el primer arreglo con los elementos a la izquierda del subarreglo
+        L[i] = A[p+i+1]                
+
+    for j=1 to n2                      //llena el segundo arreglo con los elementos a la derecha del subarreglo
+        R[j] = A[q+j]
+
+    L[n1+1] = ∞                        //coloca un número que es más grande que cuaqluier otro númeroen el índice extra de cada 
+    R[n2+1] = ∞                        //arreglo
+    i = 1                              //inicializa cada iterador en 1
+    j = 1
+
+    for k=p to r                       //compara los elementos en la cima de cada arreglo e inserta el menor en el subarreglo
+        if L[i] <= R[j]                //en orden
+            A[k] = L[i]
+            i = i+1
+        else
+            A[k] = R[j]
+            j = j+1
+
+Merge-Sort(A,p,r)                     //llamado recursivo, p es el índice de la izquierda del subarreglo y r el de la derecha
+    if p<r                            //el llamado recursivo termina cuando la longitud del subarreglo es 1
+        q = [(p+r)/2]                 //calcula el índice de la mitad del subarreglo
+        Merge-Sort(A,p,q)             //llamados recursivos para cada parte del subarreglo 
+        Merge-Sort(A,q+1,r)
+        Merge(A,p,q,r)                //llama a la función merge para juntar cada subarreglo que ya está ordenado
