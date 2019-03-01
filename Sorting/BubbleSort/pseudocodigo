@@ -1,0 +1,5 @@
+bubbleSort(A)
+for i=1 to A.length-1         //A.length iteraciones i
+  for j=A.length downto i+1   //tantas iteraciones desde A.length hasta el i actual, hasta el i actual estará ordenado
+    if A[j]<A[j-1]            //si el elemento en el índice j es mayor que el de el índice j-1 los intercambia 
+      swap A[j] with A[j-1]   //se intercambiará el elemento en el índice j hasta encontrar su posición ordenada
