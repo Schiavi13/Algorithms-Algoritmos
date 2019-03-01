@@ -1,6 +1,6 @@
 BinarySearch(A,item,left,right)       //Takes 4 arguments, the array, left edge, right edge of the array
   pivote = (right+left)/2     //the pivote is the middle index of the array
-  if left>right         //stop condition
+  if left>right         //termination condition
     return NIL          //item was not found
   if A[pivote] == item  //if the item is found
     return pivote       //returns the index where it was found
