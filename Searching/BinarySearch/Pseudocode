@@ -1,0 +1,9 @@
+BinarySearch(A,item,left,right)       //Takes 4 arguments, the array, left edge, right edge of the array
+  pivote = (right+left)/2     //the pivote is the middle index of the array
+  if left>right         //stop condition
+    return NIL          //item was not found
+  if A[pivote] == item  //if the item is found
+    return pivote       //returns the index where it was found
+  if A[pivote]>item     //if the item in pivote is greater than item 
+    return BinarySearch(A,item,left,pivote-1)   //calls the function for the subarray {A[left],...,A[pivote-1]}
+return BinarySearch(A,item,pivote+1,right) //otherwise calls the function for the subarray {A[pivote+1],...,A[right]}
