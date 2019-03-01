@@ -1,0 +1,9 @@
+BinarySearch(A,item,left,right)       //Recibe 4 parámetros, el arreglo, el valor a buscar, límite izquierdo, límite derecho del arreglo
+  pivote = (right+left)/2     //el pivote será la mitad del arreglo
+  if left>right         //condición de parada
+    return NIL          //no se encontró el valor
+  if A[pivote] == item  //encuentra el valor
+    return pivote       //retorna la posición
+  if A[pivote]>item     //compara si el valor en la mitad del arreglo es mayor que el elemento
+    return BinarySearch(A,item,left,pivote-1)   //si se cumple, llama la función en el subarreglo {A[left],...,A[pivote-1]}
+  return BinarySearch(A,item,pivote+1,right)    //de lo contrario llama la función en el subarreglo {A[pivote+1],...,A[right]}
