@@ -1,0 +1,4 @@
+dados un arreglo de coeficientes A, un valor para x, y n = A.length-1
+y = 0
+for i = n downto 0
+  y = A[i] + x*y
